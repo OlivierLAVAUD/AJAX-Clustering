@@ -4,6 +4,10 @@ from sklearn.metrics import mean_squared_error
 import pandas as pd
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
+import sys
+
+
+from app.config import PORT_API_MODEL
 
 app = FastAPI()
 
@@ -11,6 +15,8 @@ app = FastAPI()
 origins = [
     "http://localhost:8888", # Adjust this to match your actual origin
 ]
+
+sys.path.append("../")
 
 app.add_middleware(
     CORSMiddleware,
