@@ -41,7 +41,7 @@ async def evaluate_clustering():
         kmeans_mse = mean_squared_error(X, kmeans.cluster_centers_[kmeans_labels])
        
         return {
-            "KMeans": kmeans_mse
+            "kmeans": kmeans_mse
         }
     except Exception as e:
         return {"error": str(e)}
