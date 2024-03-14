@@ -24,10 +24,10 @@ modelInput.addEventListener('change', async function() {
             if (response.ok) {
                 // Récupération des données de réponse
                 const data = await response.json();
-                console.log('Performance score:', data["KMeans MSE"]);
+                console.log('Performance score:', data["kmeans"]);
 
                 // Afficher le score de performance dans la div
-                performanceScoreDisplay.textContent = `Performance score for ${selectedModel}: ${data["KMeans MSE"]}`;
+                performanceScoreDisplay.textContent = `Performance score for ${selectedModel}: ${data["kmeans"]}`;
             } else {
                 console.error('Failed to fetch performance score from the API.');
                 performanceScoreDisplay.textContent = 'Failed to fetch performance score';
