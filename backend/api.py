@@ -4,17 +4,17 @@ from sklearn.metrics import mean_squared_error
 import pandas as pd
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
+import sys
+
+
+sys.path.append("../")
+from config import api_port
 
 app = FastAPI()
 
-# Configure CORS middleware to allow only requests from port 8888
-origins = [
-    "http://localhost:8888", # Adjust this to match your actual origin
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=api_port,
     allow_credentials=True,
     allow_methods=["GET","POST"],
     allow_headers=["*"],
