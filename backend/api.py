@@ -7,20 +7,14 @@ from fastapi.middleware.cors import CORSMiddleware
 import sys
 
 
-from app.config import PORT_API_MODEL
+sys.path.append("../")
+from config import api_port
 
 app = FastAPI()
 
-# Configure CORS middleware to allow only requests from port 8888
-origins = [
-    "http://localhost:8888", # Adjust this to match your actual origin
-]
-
-sys.path.append("../")
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=api_port,
     allow_credentials=True,
     allow_methods=["GET","POST"],
     allow_headers=["*"],
