@@ -8,13 +8,13 @@ import sys
 
 
 sys.path.append("../")
-from config import api_port
+from config import HTML_PORT
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=api_port,
+    allow_origins=HTML_PORT,
     allow_credentials=True,
     allow_methods=["GET","POST"],
     allow_headers=["*"],
