@@ -1,13 +1,11 @@
-/evaluate_clustering_kmeans/
-        return {
-            "kmeans": kmeans_mse
-        }
+3 endpoints:
 
+/evaluate_clustering_kmeans/
 /evaluate_clustering_agglomerative/
-et
 /evaluate_clustering_dbscan/
 
-        return {
+
+return {
             "silhouette_score": silhouette,
         }
 
