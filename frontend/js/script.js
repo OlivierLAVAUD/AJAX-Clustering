@@ -5,8 +5,6 @@ modelInput.addEventListener('change', async function() {
     const selectedModel = modelInput.value;
     console.log('Selected model:', selectedModel);
 
-
-
     if (selectedModel == 'model-kmean') {
         const apiUrl = 'http://127.0.0.1:8000/evaluate_clustering/';
 
@@ -35,5 +33,8 @@ modelInput.addEventListener('change', async function() {
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    }
+    } else {
+        console.log('modele non paramétré')
+        performanceScoreDisplay.textContent = `${selectedModel} is not avalaible yet`;
+    } 
 });
