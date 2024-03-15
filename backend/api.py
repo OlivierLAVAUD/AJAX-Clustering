@@ -36,7 +36,7 @@ def read_data():
     return X
 
 
-@app.get("/evaluate_clustering/")
+@app.get("/evaluate_clustering_kmeans/")
 async def evaluate_clustering():
     try:
         X = read_data()
@@ -44,10 +44,13 @@ async def evaluate_clustering():
         # KMeans clustering
         kmeans = KMeans(n_clusters=3, random_state=42)
         kmeans_labels = kmeans.fit_predict(X)
-        kmeans_mse = mean_squared_error(X, kmeans.cluster_centers_[kmeans_labels])
-       
+
+        # Metric
+        #kmeans_mse = mean_squared_error(X, kmeans.cluster_centers_[kmeans_labels])
+        silhouette = silhouette_score(X, kmeans_labels)
+
         return {
-            "kmeans": kmeans_mse
+            "silhouette_score": silhouette,
         }
     except Exception as e:
         return {"error": str(e)}
@@ -62,15 +65,11 @@ async def evaluate_clustering():
         agglomerative = AgglomerativeClustering(n_clusters=3)
         agglomerative_labels = agglomerative.fit_predict(X)
 
-        # Metrics
+        # Metric
         silhouette = silhouette_score(X, agglomerative_labels)
-        davies_bouldin = davies_bouldin_score(X, agglomerative_labels)
-        calinski_harabasz = calinski_harabasz_score(X, agglomerative_labels)
        
         return {
             "silhouette_score": silhouette,
-            "davies_bouldin_score": davies_bouldin,
-            "calinski_harabasz_score": calinski_harabasz
         }
     
     except Exception as e:
@@ -87,15 +86,11 @@ async def evaluate_clustering():
         dbscan_labels = dbscan.fit_predict(X)
         # DBSCAN ne retourne pas de cluster centers, donc vous pouvez calculer la métrique de clustering autrement
 
-        # Metrics
+        # Metric
         silhouette = silhouette_score(X, dbscan_labels)
-        davies_bouldin = davies_bouldin_score(X, dbscan_labels)
-        calinski_harabasz = calinski_harabasz_score(X, dbscan_labels)
        
         return {
             "silhouette_score": silhouette,
-            "davies_bouldin_score": davies_bouldin,
-            "calinski_harabasz_score": calinski_harabasz
         }
     
     except Exception as e:
