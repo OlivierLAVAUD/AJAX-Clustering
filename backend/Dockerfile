@@ -7,9 +7,6 @@ WORKDIR /app
 # Copier le contenu actuel du répertoire vers le répertoire /app dans le conteneur
 COPY . .
 
-# Ajouter le fichier CSV au répertoire de travail de l'application dans le conteneur
-COPY Mall_Customers.csv /app/data/Mall_Customers.csv
-
 # Installer les dépendances de l'application
 RUN pip install --no-cache-dir fastapi uvicorn scikit-learn pandas numpy
 
