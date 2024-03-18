@@ -22,7 +22,7 @@ app.add_middleware(
 
 def read_data():
     # Path to the CSV file in the data directory
-    csv_file_path = "../data/Mall_Customers.csv"
+    csv_file_path = "data/Mall_Customers.csv"
     
     # Read the CSV file directly
     df = pd.read_csv(csv_file_path)
