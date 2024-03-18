@@ -6,6 +6,10 @@ html {
   font-weight: 200;
 }
 
+h1 {
+  font-size: 40px;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }

@@ -8,12 +8,14 @@
 </head>
 <body>
 
+  <h1>Apply clustering model on dataset Mall Customer Segmentation</h1>
   <form class="search-form">
     <label for="model-select">Choose your clustering model:</label>
     <select id="model-select" class="model-select">
-      <option value="model-kmean">Model KMean</option>
-      <option value="model-2">Model 2</option>
-      <option value="model-3">Model 3</option>
+      <option value="" disabled selected>Select a model...</option>
+      <option value="kmeans">Model KMean</option>
+      <option value="agglomerative">Model Agglomerative</option>
+      <option value="dbscan">Model DBSCAN</option>
   </select>
   </form>
 
