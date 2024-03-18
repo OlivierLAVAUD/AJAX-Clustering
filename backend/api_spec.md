@@ -1,8 +1,8 @@
 3 endpoints:
 
-/evaluate_clustering_kmeans/
-/evaluate_clustering_agglomerative/
-/evaluate_clustering_dbscan/
+/evaluate_clustering_kmeans/  
+/evaluate_clustering_agglomerative/  
+/evaluate_clustering_dbscan/  
 
 
 return {
